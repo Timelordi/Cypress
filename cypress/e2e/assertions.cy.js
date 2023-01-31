@@ -28,7 +28,7 @@ describe("Assertions demo", () => {
         .and('exist')
 
         cy.xpath("//a").should('have.length', '5') // Number of links
-//entering Username
+        //entering Username
         cy.get("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input").type("Admin") //provide value into input box
         cy.get("#app > div.orangehrm-login-layout > div > div.orangehrm-login-container > div > div.orangehrm-login-slot > div.orangehrm-login-form > form > div:nth-child(2) > div > div:nth-child(2) > input").should('have.value', 'Admin')
     })
@@ -43,7 +43,8 @@ describe("Assertions demo", () => {
         cy.get('.oxd-button').click()
 
         let expName="Paul Collings";
-        cy.get("#app > div.oxd-layout > div.oxd-layout-navigation > header > div.oxd-topbar-header > div.oxd-topbar-header-userarea > ul > li > span > img").then((x)=>{
+        cy.get("#app > div.oxd-layout > div.oxd-layout-navigation > header > div.oxd-topbar-header > div.oxd-topbar-header-userarea > ul > li > span > img")
+        .then((x)=>{
             let actualName=x.text()
 
             //BDD style

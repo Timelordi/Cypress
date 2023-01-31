@@ -14,7 +14,7 @@ describe("Handle Tables", () => {
         cy.get("#menu-customer > a").click()
         cy.get("#collapse-5 > li:nth-child(1) > a").click()
     })
-
+// узнаем количество строк и столбцов в таблице
     it.skip("Check Number of Rows and Columns", () => {
         cy.get("#form-customer > div.table-responsive > table > tbody > tr").should("have.length", '10')
         cy.get("#form-customer > div.table-responsive > table > tbody > tr:nth-child(1) > td").should("have.length", '7')
@@ -22,7 +22,6 @@ describe("Handle Tables", () => {
 
     it.skip("Check cell data from specific row & Column", () => {
         cy.get("#form-customer > div.table-responsive > table > tbody > tr:nth-child(7) > td:nth-child(3)").should("contain", "abcdrt@gmail.com")
-
 
     })
 // ну это просто какой-то писец запутанный
@@ -62,7 +61,5 @@ describe("Handle Tables", () => {
                 })
             }
         }
-
-
     })
 })

@@ -28,7 +28,26 @@
 
 Cypress.Commands.add("getIFrame", (iFrame) => {
     return cy.get("#mce_0_ifr")
-    .its('0.contentDocument.body')
-    .should('be.visible')
-    .then(cy.wrap);
+        .its('0.contentDocument.body')
+        .should('be.visible')
+        .then(cy.wrap);
+})
+
+
+//-----------------------------------------
+// customer command for clicking on link using label
+
+Cypress.Commands.add("clickLink", (label) => {
+    cy.get("a").contains(label).click();
+})
+
+//Customer commans for Login
+Cypress.Commands.add('loginApp', (email, password) => {
+
+    cy.get("#Email").type(email);
+    cy.get("#Password").type(password);
+    cy.get("body > div.master-wrapper-page > div.master-wrapper-content > div > div > div > div.page-body > div.customer-blocks > div.returning-wrapper.fieldset > form > div.buttons > button").click()
+
+    //validation
+    cy.get("body > div.master-wrapper-page > div.header > div.header-upper > div.header-links-wrapper > div.header-links > ul > li:nth-child(1) > a").should('have.text', "My account");
 })
